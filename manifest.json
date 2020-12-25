@@ -1,0 +1,21 @@
+{
+  "name": "Greeter Robot",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": ["https://dashboard.microverse.org/"],
+      "js": [
+        "js/notify.js"
+      ]
+    }
+  ],
+  "background" : {
+    "scripts" : ["js/background.js"],
+    "persistent": false
+  },
+  "permissions": ["notifications"],
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "manifest_version": 2
+}
