@@ -1,9 +1,9 @@
 {
-  "name": "Greeter Robot",
+  "name": "Submit Form Notifier",
   "version": "1.0",
   "content_scripts": [
     {
-      "matches": ["https://dashboard.microverse.org/"],
+      "matches": ["https://dashboard.microverse.org/*"],
       "js": [
         "js/notify.js"
       ]
