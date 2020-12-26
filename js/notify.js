@@ -1,18 +1,20 @@
 /* eslint-disable no-undef */
-const MICROVERSE_TIME = -6; // +1 or -6
+const MICROVERSE_TIME = +1; // +1 or -6
 const EVENING_MEETING_HOUR = 17;
 
 const offsetHour = Math.floor(Math.abs((new Date().getTimezoneOffset() / 60) + (MICROVERSE_TIME)));
 
 let localHour = EVENING_MEETING_HOUR + offsetHour;
-if (localHour > 24) localHour -= 24;
-
 const localMinutes = Math.floor(Math.abs(new Date().getTimezoneOffset() % 60));
 
-const timeoutDelay = new Date(`${new Date().toDateString()} ${localHour}:${localMinutes}:00`).getTime() - new Date().getTime();
-// const timeoutDelay = new Date(new Date().toDateString() + ` 00:43:00`).getTime() - new Date().getTime();
+let date = new Date();
 
-// console.log("Notification coming in", (new Date(new Date().toDateString() + ` ${localHour}:${localMinutes}:00`).getTime() - new Date().getTime()) / 1000 / 60 / 60);
+if (localHour > 24) {
+  localHour -= 24;
+  date = new Date(date.setDate(date.getDate() + 1));
+}
+
+const timeoutDelay = new Date(`${date.toDateString()} ${localHour}:${localMinutes}:00`).getTime() - new Date().getTime();
 
 if (timeoutDelay > 0) {
   setTimeout(() => {
