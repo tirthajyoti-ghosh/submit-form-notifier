@@ -37,7 +37,7 @@ const calculateTimeoutDelay = microverseTime => {
   // A new day has already began after 12 AM.
   // This new day plus the date shift happened before when localHour was found to be more than 24.
   // So 27.5 means 1 day + 3.5 hours.
-  // That's this if statement.
+  // This ternary operator takes away that extra 1 day for this edge case.
   timeoutDelay = timeoutDelay > 86400000 ? timeoutDelay - 86400000 : timeoutDelay;
 
   return timeoutDelay;
