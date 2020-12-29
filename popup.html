@@ -1,19 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Submit Form Notifier</title>
-</head>
-<body>
-  <form id="form">
-    <select id="microverse-time">
-      <option value="+1">UTC +1</option>
-      <option value="-6">UTC -6</option>
-    </select>
-    <input type="submit" value="Save">
-  </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit Form Notifier</title>
+    <style>
+      body {
+        height: 100px;
+        width: 250px;
+        padding: 15px;
+      }
 
-  <script src="js/popup.js"></script>
-</body>
+      #microverse-time {
+        border: none;
+        outline: none;
+        box-shadow: 0px 1px 2px 0px #363636;
+        height: 35px;
+        width: 100%;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 16px;
+        color: #363636;
+      }
+
+      button {
+        font-size: 16px;
+        font-family: inherit;
+        color: white;
+        width: 100%;
+        padding: 0.5em 1em;
+        margin-top: 20px;
+        outline: none;
+        border: none;
+        border-radius: 3px;
+        background-color: #3f6ad8;
+        box-shadow: 0 16px 26px -10px rgba(63,106,216,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(63,106,216,.2);
+        cursor: pointer;
+        transition: box-shadow .3s ease,color .3s ease;
+      }
+
+      button:hover {
+        box-shadow: 0 16px 26px 0px rgba(63,106,216,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(63,106,216,.2);
+      }
+    </style>
+  </head>
+  <body>
+    <form id="form">
+      <select id="microverse-time">
+        <option disabled selected>Select your Microverse time</option>
+        <option value="+1">UTC +1</option>
+        <option value="-6">UTC -6</option>
+      </select>
+      <button type="submit">Save</button>
+    </form>
+
+    <script src="js/popup.js"></script>
+  </body>
 </html>
